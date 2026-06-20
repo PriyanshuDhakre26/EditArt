@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const auth = require("../middlewares/authmiddleware");
+const auth = require("../middlewares/authMiddleware");
 const {
   createConversation,
   sendMessage,
@@ -10,8 +10,6 @@ const {
   getChatHistory,
   getConversation,
 } = require("../controllers/chatController");
-
-
 
 router.post("/conversation", auth, createConversation);
 

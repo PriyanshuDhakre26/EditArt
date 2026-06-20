@@ -3,13 +3,13 @@ const router = express.Router();
 const upload = require("../middlewares/upload");
 
 
-const auth = require("../middlewares/authmiddleware");
+const auth = require("../middlewares/authMiddleware");
 
 const {
   createPost,
   getMyPosts,
   deletePost,
-} = require("../controllers/postcontrollers");
+} = require("../controllers/postControllers");
 
 
 

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/post");
-const { searchUsers, searchPosts } = require("../controllers/searchcontroller");
+const { searchUsers, searchPosts } = require("../controllers/searchController");
 
 router.get("/", async (req, res) => {
   try {
