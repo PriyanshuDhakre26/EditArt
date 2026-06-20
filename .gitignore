@@ -1,0 +1,13 @@
+node_modules/
+dist/
+build/
+
+.vscode/
+.DS_Store
+
+editart-frontend/node_modules/
+editart-backend/node_modules/
+editart-backend/src/uploads/
+editart-frontend/.env
+editart-backend/.env
+
