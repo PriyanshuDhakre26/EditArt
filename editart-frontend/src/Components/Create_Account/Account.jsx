@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "./Account.css";
 import { useNavigate } from "react-router-dom";
-
+import API_URL from "../../config/api";
 function Account() {
   const navigate = useNavigate();
 
@@ -24,7 +24,10 @@ function Account() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/api/auth/register", formData);
+     const response = await axios.post(
+       `${API_URL}/api/auth/register`,
+       formData,
+     );
 
       // alert(response.data.message);
 

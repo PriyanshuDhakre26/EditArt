@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./userprofile.css";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../../config/api";
 
 function UserProfile() {
   const [user, setUser] = useState(null);
@@ -21,11 +22,11 @@ function UserProfile() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await axios.get("/api/posts", {
-        headers: {
-          Authorization: token,
-        },
-      });
+     const response = await axios.get(`${API_URL}/api/posts`, {
+       headers: {
+         Authorization: token,
+       },
+     });
 
       setPosts(response.data.posts);
     } catch (error) {
@@ -38,11 +39,12 @@ function UserProfile() {
       try {
         const token = localStorage.getItem("token");
 
-        const response = await axios.get("/api/auth/profile", {
-          headers: {
-            Authorization: token,
-          },
-        });
+       const response = await axios.get(`${API_URL}/api/auth/profile`, {
+         headers: {
+           Authorization: token,
+         },
+       });
+        console.log("PROFILE RESPONSE:", response.data);
         setEditName(response.data.user.name);
 
         setEditBio(response.data.user.bio || "");
@@ -61,7 +63,7 @@ function UserProfile() {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        "/api/auth/profile",
+        `${API_URL}/api/auth/profile`,
         {
           name: editName,
           bio: editBio,
@@ -103,11 +105,11 @@ function UserProfile() {
       formData.append("file", file);
       formData.append("caption", caption);
 
-      await axios.post("/api/posts", formData, {
-        headers: {
-          Authorization: token,
-        },
-      });
+     await axios.post(`${API_URL}/api/posts`, formData, {
+       headers: {
+         Authorization: token,
+       },
+     });
 
       setFile(null);
       setPreview(null);
@@ -127,7 +129,7 @@ function UserProfile() {
 
       formData.append("image", file);
 
-      const response = await axios.put("/api/auth/profile-picture", formData, {
+      await axios.put(`${API_URL}/api/auth/profile-picture`, formData, {
         headers: {
           Authorization: token,
         },
@@ -147,7 +149,7 @@ function UserProfile() {
 
       const token = localStorage.getItem("token");
 
-      await axios.delete(`/api/posts/${postId}`, {
+      await axios.delete(`${API_URL}/api/posts/${postId}`, {
         headers: {
           Authorization: token,
         },

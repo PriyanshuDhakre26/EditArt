@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import landing_page_logo from "../../assets/images/landing_page_logo.png";
+import API_URL from "../../config/api";
 import "./Account.css";
 
 function Login() {
@@ -23,7 +24,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/api/auth/login", formData);
+      const response = await axios.post(`${API_URL}/api/auth/login`, formData);
 
       localStorage.setItem("token", response.data.token);
 

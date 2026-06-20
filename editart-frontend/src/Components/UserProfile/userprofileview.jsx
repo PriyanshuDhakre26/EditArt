@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import "./userprofileview.css";
-
+import API_URL from "../../config/api";
 function userprofileview() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ function userprofileview() {
 
   const fetchUser = async () => {
     try {
-      const response = await axios.get(`/api/users/${id}`);
+      const response = await axios.get(`${API_URL}/api/users/${id}`);
       console.log(response.data);
 
       setUser(response.data.user);

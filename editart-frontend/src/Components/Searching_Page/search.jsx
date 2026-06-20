@@ -3,6 +3,7 @@ import axios from "axios";
 import "./search.css";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../../config/api";
 
 const apiKey = import.meta.env.VITE_PEXELS_API_KEY;
 
@@ -54,8 +55,7 @@ function Search() {
 
   const searchDatabase = async () => {
     try {
-      const response = await axios.get(`/api/search?q=${query}`);
-
+      const response = await axios.get(`${API_URL}/api/search?q=${query}`);
       setUsers(response.data.users || []);
       setPosts(response.data.posts || []);
 
