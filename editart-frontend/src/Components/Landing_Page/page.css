@@ -1,0 +1,197 @@
+.landing{
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  position:relative;
+  background:black;
+}
+
+.night_bg{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  animation:bgZoom 12s ease forwards;
+}
+
+@keyframes bgZoom{
+  from{
+    transform:scale(1.2);
+  }
+  to{
+    transform:scale(1);
+  }
+}
+
+.moon_glow{
+  position:absolute;
+  top:15%;
+  left:60%;
+  width:400px;
+  height:400px;
+
+  background:rgba(255,255,255,.15);
+
+  border-radius:50%;
+
+  filter:blur(100px);
+
+  animation:glow 4s ease infinite alternate;
+}
+
+@keyframes glow{
+  from{
+    opacity:.3;
+  }
+
+  to{
+    opacity:.8;
+  }
+}
+
+.feather{
+  position:absolute;
+
+  width:180px;
+
+  left:50%;
+  top:-250px;
+
+  transform:translateX(-50%);
+
+  animation:floatDown 5s ease forwards;
+}
+
+@keyframes floatDown{
+
+  0%{
+    top:-250px;
+    transform:
+      translateX(-50%)
+      rotate(-20deg);
+  }
+
+  25%{
+    transform:
+      translateX(-45%)
+      rotate(20deg);
+  }
+
+  50%{
+    transform:
+      translateX(-55%)
+      rotate(-15deg);
+  }
+
+  75%{
+    transform:
+      translateX(-48%)
+      rotate(10deg);
+  }
+
+  100%{
+    top:42%;
+    transform:
+      translateX(-50%)
+      rotate(0deg);
+  }
+
+}
+
+.fade_feather{
+  animation:
+  disappear 1.5s forwards;
+}
+
+@keyframes disappear{
+  to{
+    opacity:0;
+    transform:
+      translateX(-50%)
+      scale(.3);
+  }
+}
+
+.logo{
+  position:absolute;
+
+  width:220px;
+
+  left:50%;
+  top:42%;
+
+  transform:
+  translate(-50%,-50%);
+
+  animation:
+  logoAppear 2s ease forwards;
+}
+
+@keyframes logoAppear{
+
+  from{
+    opacity:0;
+    transform:
+      translate(-50%,-50%)
+      scale(.3);
+  }
+
+  to{
+    opacity:1;
+    transform:
+      translate(-50%,-50%)
+      scale(1);
+  }
+
+}
+
+.hero_content{
+  position:absolute;
+
+  top:65%;
+  left:50%;
+
+  transform:
+  translateX(-50%);
+
+  text-align:center;
+
+  animation:
+  contentFade 1.5s ease forwards;
+}
+
+.hero_content h1{
+  color:white;
+  font-size:4rem;
+  margin-bottom:15px;
+}
+
+.hero_content p{
+  color:#ddd;
+  margin-bottom:20px;
+}
+
+.hero_content button{
+  padding:12px 30px;
+
+  border:none;
+
+  border-radius:30px;
+
+  cursor:pointer;
+
+  font-size:16px;
+}
+
+@keyframes contentFade{
+  from{
+    opacity:0;
+    transform:
+      translate(-50%,50px);
+  }
+
+  to{
+    opacity:1;
+    transform:
+      translate(-50%,0);
+  }
+}

@@ -1,0 +1,344 @@
+/* ==================================
+   PAGE
+================================== */
+
+.profile_container {
+  min-height: 100vh;
+
+  padding: 40px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #06313d,
+      #02131a 50%,
+      #01090d 100%
+    );
+
+  color: white;
+}
+
+/* ==================================
+   PROFILE HEADER
+================================== */
+
+.profile_header {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 60px;
+
+  padding: 40px;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,255,255,.04);
+
+  backdrop-filter: blur(15px);
+
+  border:
+    1px solid rgba(0,198,162,.15);
+
+  box-shadow:
+    0 0 25px rgba(0,198,162,.08);
+}
+
+/* ==================================
+   PROFILE IMAGE
+================================== */
+
+.profile_avatar {
+  flex-shrink: 0;
+}
+
+.avatar_wrapper {
+  position: relative;
+}
+
+.avatar {
+  width: 190px;
+  height: 190px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 4px solid #d8b24d;
+
+  box-shadow:
+    0 0 20px rgba(216,178,77,.4),
+    0 0 40px rgba(0,198,162,.2);
+}
+
+/* ==================================
+   INFO
+================================== */
+
+.profile_info {
+  flex: 1;
+}
+
+.profile_info h1 {
+  font-size: 42px;
+
+  margin-bottom: 12px;
+
+  color: #f8d36a;
+}
+
+.profile_info h3 {
+  font-size: 24px;
+
+  margin-bottom: 25px;
+
+  color: white;
+}
+
+/* ==================================
+   STATS
+================================== */
+
+.profile_stats {
+  display: flex;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+
+  flex-wrap: wrap;
+}
+
+.profile_stats div {
+  min-width: 130px;
+
+  text-align: center;
+
+  padding: 20px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255,255,255,.05);
+
+  border:
+    1px solid rgba(0,198,162,.15);
+}
+
+.profile_stats strong {
+  display: block;
+
+  font-size: 28px;
+
+  color: #f8d36a;
+
+  margin-bottom: 5px;
+}
+
+.profile_stats span {
+  color: #cfd8dc;
+}
+
+/* ==================================
+   ACTION BUTTONS
+================================== */
+
+.profile_actions {
+  display: flex;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+.follow_btn,
+.message_btn {
+  border: none;
+
+  padding: 12px 24px;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #00c6a2,
+      #d8b24d
+    );
+
+  transition: .3s;
+}
+
+.follow_btn:hover,
+.message_btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 15px rgba(0,198,162,.35);
+}
+
+/* ==================================
+   TABS
+================================== */
+
+.profile_tabs {
+  max-width: 1200px;
+
+  margin: 40px auto 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 60px;
+
+  border-top:
+    1px solid rgba(255,255,255,.08);
+}
+
+.profile_tabs button {
+  border: none;
+
+  background: none;
+
+  cursor: pointer;
+
+  padding: 18px 0;
+
+  color: #9fb1b7;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+}
+
+.profile_tabs button:first-child {
+  color: #f8d36a;
+
+  border-top:
+    2px solid #f8d36a;
+}
+
+/* ==================================
+   POSTS GRID
+================================== */
+
+.posts_grid {
+  max-width: 1200px;
+
+  margin: 40px auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fill, minmax(280px, 1fr));
+
+  gap: 20px;
+}
+
+.post_card {
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255,255,255,.04);
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  transition: .3s;
+
+  cursor: pointer;
+}
+
+.post_card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 0 20px rgba(0,198,162,.25);
+}
+
+.post_card img,
+.post_card video {
+  width: 100%;
+
+  height: 320px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+/* ==================================
+   EMPTY STATE
+================================== */
+
+.posts_grid:empty::after {
+  content: "No Posts Yet";
+
+  width: 100%;
+
+  text-align: center;
+
+  color: #9fb1b7;
+
+  font-size: 18px;
+}
+
+/* ==================================
+   MOBILE
+================================== */
+
+@media(max-width:900px){
+
+  .profile_header{
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile_stats{
+    justify-content: center;
+  }
+
+  .profile_actions{
+    justify-content: center;
+  }
+}
+
+@media(max-width:600px){
+
+  .profile_container{
+    padding: 20px;
+  }
+
+  .avatar{
+    width: 140px;
+    height: 140px;
+  }
+
+  .profile_info h1{
+    font-size: 30px;
+  }
+
+  .profile_info h3{
+    font-size: 20px;
+  }
+
+  .posts_grid{
+    grid-template-columns: 1fr;
+  }
+}
