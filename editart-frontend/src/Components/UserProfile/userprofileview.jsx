@@ -6,7 +6,7 @@ import "./userprofileview.css";
 function userprofileview() {
   const { id } = useParams();
   const navigate = useNavigate();
-const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -15,11 +15,11 @@ const [posts, setPosts] = useState([]);
 
   const fetchUser = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/users/${id}`);
+      const response = await axios.get(`/api/users/${id}`);
       console.log(response.data);
 
       setUser(response.data.user);
-     setPosts(response.data.posts || []);
+      setPosts(response.data.posts || []);
     } catch (error) {
       console.log(error);
     }

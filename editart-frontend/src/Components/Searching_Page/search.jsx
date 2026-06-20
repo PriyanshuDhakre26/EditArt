@@ -52,21 +52,19 @@ function Search() {
     }
   };
 
-const searchDatabase = async () => {
-  try {
-    const response = await axios.get(
-      `http://localhost:5000/api/search?q=${query}`,
-    );
+  const searchDatabase = async () => {
+    try {
+      const response = await axios.get(`/api/search?q=${query}`);
 
-    setUsers(response.data.users || []);
-    setPosts(response.data.posts || []);
+      setUsers(response.data.users || []);
+      setPosts(response.data.posts || []);
 
-    // Always search Pexels too
-    searchPexels();
-  } catch (error) {
-    console.log(error);
-  }
-};
+      // Always search Pexels too
+      searchPexels();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const searchPexels = async () => {
     try {

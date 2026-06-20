@@ -38,7 +38,7 @@ function Chat() {
     const token = localStorage.getItem("token");
 
     const response = await axios.post(
-      "http://localhost:5000/api/chat/conversation",
+      "/api/chat/conversation",
       {
         receiverId: userId,
       },
@@ -54,20 +54,17 @@ function Chat() {
     fetchMessages(response.data._id);
   };
 
-const fetchMessages = async (conversationId) => {
-  const token = localStorage.getItem("token");
+  const fetchMessages = async (conversationId) => {
+    const token = localStorage.getItem("token");
 
-  const response = await axios.get(
-    `http://localhost:5000/api/chat/messages/${conversationId}`,
-    {
+    const response = await axios.get(`/api/chat/messages/${conversationId}`, {
       headers: {
         Authorization: token,
       },
-    },
-  );
+    });
 
-  setMessages(response.data);
-};
+    setMessages(response.data);
+  };
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({

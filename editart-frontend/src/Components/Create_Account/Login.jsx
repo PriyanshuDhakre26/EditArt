@@ -23,10 +23,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        formData,
-      );
+      const response = await axios.post("/api/auth/login", formData);
 
       localStorage.setItem("token", response.data.token);
 
@@ -43,62 +40,62 @@ function Login() {
     }
   };
 
- return (
-   <div className="login_page">
-     <div className="overlay"></div>
+  return (
+    <div className="login_page">
+      <div className="overlay"></div>
 
-     <div className="login_card">
-       <div className="logo_section">
-         {/* <img src={landing_page_logo} alt="logo" className="logo" /> */}
+      <div className="login_card">
+        <div className="logo_section">
+          {/* <img src={landing_page_logo} alt="logo" className="logo" /> */}
 
-         <h1>Welcome Back</h1>
+          <h1>Welcome Back</h1>
 
-         <p>Login to continue your creative journey</p>
-       </div>
+          <p>Login to continue your creative journey</p>
+        </div>
 
-       <form onSubmit={handleSubmit} className="login_form">
-         <label>Account Name</label>
+        <form onSubmit={handleSubmit} className="login_form">
+          <label>Account Name</label>
 
-         <input
-           type="text"
-           name="accountName"
-           placeholder="Enter your account name"
-           value={formData.accountName}
-           onChange={handleChange}
-         />
+          <input
+            type="text"
+            name="accountName"
+            placeholder="Enter your account name"
+            value={formData.accountName}
+            onChange={handleChange}
+          />
 
-         <label>Password</label>
+          <label>Password</label>
 
-         <input
-           type="password"
-           name="password"
-           placeholder="Enter your password"
-           value={formData.password}
-           onChange={handleChange}
-         />
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            value={formData.password}
+            onChange={handleChange}
+          />
 
-         {/* <div className="forgot">Forgot Password?</div> */}
+          {/* <div className="forgot">Forgot Password?</div> */}
 
-         <button type="submit">Login</button>
-       </form>
+          <button type="submit">Login</button>
+        </form>
 
-       {/* <div className="divider">
+        {/* <div className="divider">
          <span>or continue with</span>
        </div> */}
 
-       {/* <div className="social_icons">
+        {/* <div className="social_icons">
          <div>G</div>
          <div>f</div>
          <div></div>
        </div> */}
 
-       <p className="bottom_text">
-         Don't have an account?
-         <span onClick={() => navigate("/register")}>Create Account</span>
-       </p>
-     </div>
-   </div>
- );
+        <p className="bottom_text">
+          Don't have an account?
+          <span onClick={() => navigate("/register")}>Create Account</span>
+        </p>
+      </div>
+    </div>
+  );
 }
 
 export default Login;

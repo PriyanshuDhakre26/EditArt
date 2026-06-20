@@ -11,9 +11,9 @@ function UserProfile() {
   const [preview, setPreview] = useState(null);
   const [caption, setCaption] = useState("");
   const [showEdit, setShowEdit] = useState(false);
-const [showCreate, setShowCreate] = useState(false);
+  const [showCreate, setShowCreate] = useState(false);
   const [editName, setEditName] = useState("");
-const [profilePreview, setProfilePreview] = useState(null);
+  const [profilePreview, setProfilePreview] = useState(null);
   const [editBio, setEditBio] = useState("");
   const [selectedPost, setSelectedPost] = useState(null);
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const [profilePreview, setProfilePreview] = useState(null);
     try {
       const token = localStorage.getItem("token");
 
-      const response = await axios.get("http://localhost:5000/api/posts", {
+      const response = await axios.get("/api/posts", {
         headers: {
           Authorization: token,
         },
@@ -38,14 +38,11 @@ const [profilePreview, setProfilePreview] = useState(null);
       try {
         const token = localStorage.getItem("token");
 
-        const response = await axios.get(
-          "http://localhost:5000/api/auth/profile",
-          {
-            headers: {
-              Authorization: token,
-            },
+        const response = await axios.get("/api/auth/profile", {
+          headers: {
+            Authorization: token,
           },
-        );
+        });
         setEditName(response.data.user.name);
 
         setEditBio(response.data.user.bio || "");
@@ -64,7 +61,7 @@ const [profilePreview, setProfilePreview] = useState(null);
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        "http://localhost:5000/api/auth/profile",
+        "/api/auth/profile",
         {
           name: editName,
           bio: editBio,
@@ -106,7 +103,7 @@ const [profilePreview, setProfilePreview] = useState(null);
       formData.append("file", file);
       formData.append("caption", caption);
 
-      await axios.post("http://localhost:5000/api/posts", formData, {
+      await axios.post("/api/posts", formData, {
         headers: {
           Authorization: token,
         },
@@ -130,15 +127,11 @@ const [profilePreview, setProfilePreview] = useState(null);
 
       formData.append("image", file);
 
-      const response = await axios.put(
-        "http://localhost:5000/api/auth/profile-picture",
-        formData,
-        {
-          headers: {
-            Authorization: token,
-          },
+      const response = await axios.put("/api/auth/profile-picture", formData, {
+        headers: {
+          Authorization: token,
         },
-      );
+      });
 
       setUser(response.data.user);
     } catch (error) {
@@ -154,7 +147,7 @@ const [profilePreview, setProfilePreview] = useState(null);
 
       const token = localStorage.getItem("token");
 
-      await axios.delete(`http://localhost:5000/api/posts/${postId}`, {
+      await axios.delete(`/api/posts/${postId}`, {
         headers: {
           Authorization: token,
         },
