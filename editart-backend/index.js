@@ -1,5 +1,5 @@
 const dotenv = require("dotenv");
-const Message = require("./src/models/message");
+const Message = require("./src/models/Message");
 dotenv.config();
 const {
   addUser,
