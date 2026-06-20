@@ -9,7 +9,7 @@ const {
   createPost,
   getMyPosts,
   deletePost,
-} = require("../controllers/postControllers");
+} = require("../controllers/postController");
 
 
 
